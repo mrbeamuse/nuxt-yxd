@@ -1,9 +1,39 @@
 <template>
   <div id="banner">
-    <img class="h-screen" src="~/assets/img/banner.png" alt="" />
+    <img class="h-100 lg:h-screen" src="~/assets/img/banner.png" alt="" />
   </div>
   <div id="srcoll-image">
-    <img class="h-50" src="~/assets/img/content.png" alt="" />
+    <img class="h-100 lg:h-50" src="~/assets/img/content.png" alt="" />
+    <n-carousel draggable autoplay>
+      <img
+        class="carousel-img"
+        src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel1.jpeg"
+      />
+      <img
+        class="carousel-img"
+        src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel2.jpeg"
+      />
+      <img
+        class="carousel-img"
+        src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel3.jpeg"
+      />
+      <img
+        class="carousel-img"
+        src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel4.jpeg"
+      />
+      <template #dots="{ total, currentIndex, to }">
+        <ul class="custom-dots">
+          <li
+            v-for="index of total"
+            :key="index"
+            :class="{ ['is-active']: currentIndex === index - 1 }"
+            @click="to(index - 1)"
+          >
+            {{ index }}
+          </li>
+        </ul>
+      </template>
+    </n-carousel>
     <div class="yun-container">
       <img class="yun-left" src="~/assets/img/left.png" alt="" />
       <img class="yun-right" src="~/assets/img/right.png" alt="" />
@@ -100,5 +130,36 @@ onMounted(() => {
     right: 0;
     top: 0;
   }
+}
+.carousel-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+.custom-dots {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 20px;
+  right: 200px;
+}
+
+.custom-dots li {
+  display: inline-block;
+  width: 12px;
+  height: 4px;
+  margin: 0 3px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition:
+    width 0.3s,
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.custom-dots li.is-active {
+  width: 40px;
+  background: #fff;
 }
 </style>

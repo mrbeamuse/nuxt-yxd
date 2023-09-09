@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1 class="bg-slate-800">欢迎来到周师傅的第一个页面</h1>
+    <n-button type="primary"> Primary </n-button>
+    <h1 class="bg-slate-800 h-10">欢迎来到周师傅的第一个页面</h1>
     <img
       v-for="(item, index) in bannerList"
       :key="index"
