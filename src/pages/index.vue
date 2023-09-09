@@ -1,18 +1,17 @@
 <template>
   <div>
-    <h1>欢迎来到易师傅的第一个页面</h1>
+    <h1>欢迎来到周师傅的第一个页面</h1>
 
-    <NuxtLink to="/list">进入列表页</NuxtLink>
+    <NuxtLink to="/list"> 进入列表页 </NuxtLink>
 
-    <br>
-    <br>
-    
-    <NuxtLink to="/user-admin/111">进入管理员 id 为 111 的用户中心</NuxtLink>
-    
+    <br />
+    <br />
+
+    <NuxtLink to="/user-admin/111"> 进入管理员 id 为 111 的用户中心 </NuxtLink>
   </div>
 </template>
 
 <script setup>
 const foo = useFoo()
-console.log(foo.value);
+console.log(foo.value)
 </script>

@@ -3,15 +3,20 @@ export default defineNuxtConfig({
   srcDir: 'src/',
 
   modules: [
-    // ...
     '@pinia/nuxt',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    [
+      '@nuxtjs/eslint-module',
+      {
+        /* module options */
+      }
+    ]
   ],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/default.scss";'	
+          additionalData: '@import "@/assets/styles/default.scss";'
         }
       }
     }

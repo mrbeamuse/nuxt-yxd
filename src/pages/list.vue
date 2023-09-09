@@ -1,15 +1,12 @@
 <template>
   <div>
-    <h1>欢迎来到易师傅的列表页面</h1>
+    <h1>欢迎来到周师傅的列表页面</h1>
 
-    <ListItem></ListItem>
+    <ListItem />
 
     <div v-focus>focus</div>
 
-    <strong>
-      姓名：{{ userInfo.userName }}
-      性别：{{ userInfo.sex }}
-    </strong>
+    <strong> 姓名：{{ userInfo.userName }} 性别：{{ userInfo.sex }} </strong>
   </div>
 </template>
 
@@ -17,5 +14,4 @@
 import { useUserStore } from '@/stores/useUserStore'
 const userInfo = useUserStore().userInfo
 // console.log(userInfo);
-
 </script>
