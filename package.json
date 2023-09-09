@@ -7,15 +7,25 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .ts .js 和 .vue 的文件",
-    "eslint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src"
+    "eslint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
+    "commit:comment": "引导设置规范化的提交信息",
+    "commit": "git-cz"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/eslint-module": "^4.1.0",
+    "commitizen": "^4.3.0",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "nuxt": "^3.7.1",
     "prettier": "^3.0.3",
     "sass": "^1.56.1",
@@ -26,5 +36,16 @@
     "@vueuse/core": "^9.6.0",
     "@vueuse/nuxt": "^9.6.0",
     "pinia": "^2.0.26"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,js,vue}": [
+      "pnpm run eslint",
+      "git add ."
+    ]
   }
 }
