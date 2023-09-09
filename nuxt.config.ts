@@ -1,8 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: true },
   srcDir: 'src/',
+  imports: {
+    dirs: ['store/**']
+  },
   modules: [
-    '@pinia/nuxt',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: [
+          // 自动引入 `defineStore(), storeToRefs()`
+          'defineStore',
+          'storeToRefs'
+        ]
+      }
+    ],
     '@vueuse/nuxt',
     [
       '@nuxtjs/eslint-module',
