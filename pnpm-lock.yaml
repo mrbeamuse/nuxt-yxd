@@ -17,6 +17,9 @@ dependencies:
   gsap:
     specifier: ^3.12.2
     version: 3.12.2
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
 
 devDependencies:
   '@commitlint/cli':
@@ -6435,7 +6438,6 @@ packages:
 
   /lodash-es@4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: true
 
   /lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
