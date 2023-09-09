@@ -10,7 +10,8 @@ export default defineNuxtConfig({
         /* module options */
       }
     ],
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@huntersofbook/naive-ui-nuxt'
   ],
   tailwindcss: {
     cssPath: '~/src/assets/css/tailwind.css',

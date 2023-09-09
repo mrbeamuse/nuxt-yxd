@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="bg-slate-800">欢迎来到周师傅的第一个页面</h1>
-
+    <NButton>hello</NButton>
     <NuxtLink to="/list"> 进入列表页 </NuxtLink>
 
     <br />
