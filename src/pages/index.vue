@@ -1,13 +1,10 @@
 <template>
   <div>
     <h1 class="bg-slate-800">欢迎来到周师傅的第一个页面</h1>
-    <NButton>hello</NButton>
+    <!-- <NButton>hello</NButton>
     <NuxtLink to="/list"> 进入列表页 </NuxtLink>
-
-    <br />
-    <br />
-
-    <NuxtLink to="/user-admin/111"> 进入管理员 id 为 111 的用户中心 </NuxtLink>
+    <NuxtLink to="/user-admin/111"> 进入管理员 id 为 111 的用户中心 </NuxtLink> -->
+    <scrollMain></scrollMain>
   </div>
 </template>
 
