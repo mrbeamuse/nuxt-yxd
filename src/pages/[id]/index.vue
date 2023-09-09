@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="header" />
   <div>
-    <h1>周师傅的详细页面</h1>
+    <h1 class="text-red-700">周师傅的详细页面</h1>
 
     <h2>title 1</h2>
 
