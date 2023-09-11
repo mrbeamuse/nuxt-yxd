@@ -1,21 +1,32 @@
 <template>
   <div>
-    <n-button type="primary"> Primary </n-button>
-    <h1 class="bg-slate-800 h-10">欢迎来到周师傅的第一个页面</h1>
-    <img
-      v-for="(item, index) in bannerList"
-      :key="index"
-      :src="item?.url"
-      alt=""
-    />
-    <!-- <NButton>hello</NButton>
-    <NuxtLink to="/list"> 进入列表页 </NuxtLink>
+    <n-button type="primary" @click="gotoScroll"> Primary </n-button>
+    <!-- <h1 class="bg-slate-800 h-10 text-base">欢迎来到周师傅的第一个页面</h1> -->
+
+    <!-- <n-grid cols="2 sm:3 lg:4 xl:5 2xl:7" responsive="screen" item-responsive> -->
+    <n-grid x-gap="12" cols="3" responsive="screen" item-responsive>
+      <n-grid-item
+        v-for="(item, index) in bannerList"
+        :key="index"
+        span="0 lg:1"
+      >
+        <img class="w-full" :src="item?.url" alt="" />
+      </n-grid-item>
+    </n-grid>
+
+    <!-- <NuxtLink to="/list"> 进入列表页 </NuxtLink>
     <NuxtLink to="/user-admin/111"> 进入管理员 id 为 111 的用户中心 </NuxtLink> -->
     <scrollMain></scrollMain>
   </div>
 </template>
 
 <script setup>
+onMounted(() => {
+  console.log('index mounted')
+  document.body.scrollTop = 0
+  console.log('index mounted', document.body.scrollTop)
+})
+const router = useRouter()
 // const foo = useFoo()
 const testData = ref()
 // onMounted(async () => {
@@ -37,4 +48,25 @@ const bannerList = computed(() => {
   console.log('bannerList', testData.value?.advertisingImgs)
   return testData.value?.advertisingImgs
 })
+
+const gotoScroll = () => {
+  router.push('/scroll')
+}
 </script>
+
+<style scoped>
+.light-green {
+  height: 108px;
+  background-color: rgba(0, 128, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.green {
+  height: 108px;
+  background-color: rgba(0, 128, 0, 0.24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

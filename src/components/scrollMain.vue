@@ -62,24 +62,40 @@ const tagHeight = 5
 //   y: 0 - Number(fullHeight) + tagHeight
 // })
 // })
+const isMobile = usecheckMobile()
+watch(isMobile, async () => {
+  await setAnimation()
+})
+const enterBanner = ref(false)
 onMounted(() => {
-  const fullHeight = document.getElementById('banner').offsetHeight
+  setAnimation()
+})
 
+const setAnimation = () => {
+  const fullHeight = document.getElementById('banner').offsetHeight
+  console.log('fullHeight', fullHeight)
   gsap.to('#srcoll-image', {
     scrollTrigger: {
-      triger: '#srcoll-image',
+      trigger: '#header',
       start: tagHeight + 'px top',
       markers: true,
       id: 'my',
       // end: 'bottom top',
-      toggleActions: 'restart none none reverse'
+      toggleActions: 'restart none none reverse',
+      onEnterBack: () => console.log('enter back'), // 滚动到进入位置
+      onLeaveBack: () => console.log('leave back'), // 滚动到退出位置
+      onToggle: (self) => {
+        console.log('toggle', self.isActive)
+        enterBanner.value = self.isActive
+      }
+      // scroller: '#app'
     },
     duration: 0.5,
     y: 0 - Number(fullHeight) + tagHeight
   })
   gsap.to('.yun-left', {
     scrollTrigger: {
-      triger: '.yun-left',
+      trigger: '#header',
       start: '500px top',
       markers: true,
       id: 'left',
@@ -91,7 +107,7 @@ onMounted(() => {
   })
   gsap.to('.yun-right', {
     scrollTrigger: {
-      triger: '.yun-right',
+      trigger: '#header',
       start: '500px top',
       markers: true,
       id: 'right',
@@ -101,7 +117,7 @@ onMounted(() => {
     duration: 1,
     x: 700
   })
-})
+}
 
 // gsap.from('#srcoll-image', { duration: 2, scale: 0.3 })
 </script>

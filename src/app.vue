@@ -1,6 +1,9 @@
 <template>
   <div>
-    <NConfigProvider :theme-overrides="themeOverrides">
+    <NConfigProvider
+      :theme-overrides="themeOverrides"
+      :breakpoints="breakpoints"
+    >
       <!-- 路由出口 -->
       <NuxtLayout>
         <NuxtPage />
@@ -19,11 +22,28 @@ const themeOverrides: GlobalThemeOverrides = {
   //   textColor: '#FF0000'
   // }
 }
-const userInfo = useUserStore().userInfo
-// const isMobile = usecheckMobile()
-useREM()
-// watch(isMobile, (val) => {
-//   console.log('isMobile', val)
-// })
-console.log(userInfo)
+
+const breakpoints = {
+  xs: 0,
+  sm: 640,
+  lg: 1024,
+  xl: 1280,
+  '2xl': 1536
+  // xxl: 1920
+}
+// const userInfo = useUserStore().userInfo
+const isMobile = usecheckMobile()
+watch(
+  isMobile,
+  (val) => {
+    console.log('isMobile', val)
+  },
+  {
+    immediate: true
+  }
+)
+
+// useREM()
+
+// console.log(userInfo)
 </script>

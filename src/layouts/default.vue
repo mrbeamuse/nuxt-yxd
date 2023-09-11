@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <h1>
-      这里是周师傅的 NuxtLayout 默认模板，可以添加在所有页面，也可单独添加
-    </h1>
-    <slot />
-  </div>
+  <ClientOnly>
+    <header id="header" class="header">
+      <h1 v-if="!isMobile">这里是周师傅的 NuxtLayout 默认模板 header pc</h1>
+      <h1 v-else>这里是周师傅的 NuxtLayout 默认模板 header 移动端</h1>
+    </header>
+  </ClientOnly>
+  <slot />
 </template>
+<script setup lang="ts">
+const isMobile = usecheckMobile()
+</script>

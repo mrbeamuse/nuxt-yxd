@@ -5,6 +5,21 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['store/**']
   },
+  // app: {
+  //   head: {
+  //     charset: 'utf-8', // 快捷方式
+  //     viewport: 'width=device-width, initial-scale=1', // 快捷方式
+  //     title: 'My App',
+  //     meta: [
+  //       { name: 'description', content: 'My amazing site.' },
+  //       { name: 'charset', content: 'utf-8' },
+  //       { name: 'name="naive-ui-style"' }
+  //     ],
+  //     link: [],
+  //     style: [],
+  //     script: []
+  //   }
+  // },
   modules: [
     [
       '@pinia/nuxt',
