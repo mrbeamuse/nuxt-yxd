@@ -66,7 +66,11 @@ const isMobile = usecheckMobile()
 watch(isMobile, async () => {
   await setAnimation()
 })
+
 const enterBanner = ref(false)
+watch(enterBanner, () => {
+  console.log('enterBanner', enterBanner.value)
+})
 onMounted(() => {
   setAnimation()
 })
@@ -76,7 +80,7 @@ const setAnimation = () => {
   console.log('fullHeight', fullHeight)
   gsap.to('#srcoll-image', {
     scrollTrigger: {
-      trigger: '#header',
+      // trigger: '#pages-header',
       start: tagHeight + 'px top',
       markers: true,
       id: 'my',
@@ -95,7 +99,7 @@ const setAnimation = () => {
   })
   gsap.to('.yun-left', {
     scrollTrigger: {
-      trigger: '#header',
+      // trigger: '#header',
       start: '500px top',
       markers: true,
       id: 'left',
@@ -107,7 +111,7 @@ const setAnimation = () => {
   })
   gsap.to('.yun-right', {
     scrollTrigger: {
-      trigger: '#header',
+      // trigger: '#header',
       start: '500px top',
       markers: true,
       id: 'right',
