@@ -4,7 +4,8 @@
     <!-- <h1 class="bg-slate-800 h-10 text-base">欢迎来到周师傅的第一个页面</h1> -->
 
     <!-- <n-grid cols="2 sm:3 lg:4 xl:5 2xl:7" responsive="screen" item-responsive> -->
-    <ClientOnly>
+    <!-- <ClientOnly>
+
       <n-grid x-gap="12" cols="3" responsive="screen" item-responsive>
         <n-grid-item
           v-for="(item, index) in bannerList"
@@ -14,6 +15,25 @@
           <img class="w-full" :src="item?.url" alt="" />
         </n-grid-item>
       </n-grid>
+    </ClientOnly> -->
+    <ClientOnly>
+      <draggable
+        :list="bannerList"
+        :disabled="!enabled"
+        item-key="name"
+        class="list-group"
+        ghost-class="ghost"
+        :move="checkMove"
+        @start="dragging = true"
+        @end="onEnd"
+      >
+        <template #item="{ element }">
+          <div class="list-group-item" :class="{ 'not-draggable': !enabled }">
+            <!-- {{ element.url }} -->
+            <img :src="element?.url" alt="" />
+          </div>
+        </template>
+      </draggable>
     </ClientOnly>
 
     <!-- <NuxtLink to="/list"> 进入列表页 </NuxtLink>
@@ -23,6 +43,19 @@
 </template>
 
 <script setup>
+import draggable from 'vuedraggable'
+
+// const drag = ref(false)
+const enabled = ref(true)
+const dragging = ref(false)
+const onEnd = (event) => {
+  dragging.value = false
+  console.log(event, bannerList.value)
+}
+const checkMove = (event) => {
+  console.log(event)
+  return true
+}
 onMounted(() => {
   // console.log('index mounted', window)
   // document.body.scrollTop = 0
@@ -63,7 +96,7 @@ if (error.value) {
 testData.value = data.value.data
 // console.log('index', testData.value)
 const bannerList = computed(() => {
-  // console.log('bannerList', testData.value?.advertisingImgs)
+  console.log('bannerList', testData.value?.advertisingImgs)
   return testData.value?.advertisingImgs
 })
 
@@ -86,5 +119,13 @@ const gotoScroll = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
+}
+
+.not-draggable {
+  cursor: no-drop;
 }
 </style>
