@@ -4,7 +4,13 @@
   </div>
   <div id="srcoll-image">
     <img class="h-100 lg:h-50" src="~/assets/img/content.png" alt="" />
-    <n-carousel draggable autoplay>
+    <n-carousel
+      ref="bannerCarousel"
+      draggable
+      :interval="2000"
+      autoplay
+      :on-update:current-index="change"
+    >
       <img
         class="carousel-img"
         src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel1.jpeg"
@@ -34,6 +40,7 @@
         </ul>
       </template>
     </n-carousel>
+    <n-button @click="jumpBanner"> 跳转banner </n-button>
     <div class="yun-container">
       <img class="yun-left" src="~/assets/img/left.png" alt="" />
       <img class="yun-right" src="~/assets/img/right.png" alt="" />
@@ -123,7 +130,15 @@ const setAnimation = () => {
   })
 }
 
-// gsap.from('#srcoll-image', { duration: 2, scale: 0.3 })
+// const change = (currentIndex, lastIndex) => {
+//   console.log('change', currentIndex, lastIndex)
+// }
+const change = () => {}
+
+const bannerCarousel = ref()
+const jumpBanner = () => {
+  bannerCarousel.value.to(2)
+}
 </script>
 
 <style lang="scss">
