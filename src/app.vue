@@ -1,13 +1,15 @@
 <template>
-  <div>
+  <div class="bg-main">
     <NConfigProvider
       :theme-overrides="themeOverrides"
       :breakpoints="breakpoints"
     >
+      <!-- <NuxtLayout name="header"></NuxtLayout> -->
       <!-- 路由出口 -->
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
+      <!-- <NuxtLayout name="footer"></NuxtLayout> -->
     </NConfigProvider>
   </div>
 </template>
@@ -22,26 +24,7 @@ const themeOverrides: GlobalThemeOverrides = {
   //   textColor: '#FF0000'
   // }
 }
-// onMounted(() => {
-//   console.log('app mounted')
-//   // 让页面滚动到顶部
-//   window.scrollTo(0, 0)
-// })
-// const nuxtApp = useNuxtApp()
-// console.log('nuxtApp', nuxtApp)
-// nuxtApp.$router.afterEach(async (to, from) => {
-//   console.log('app route', to, from)
-//   await window.scrollTo(0, 0)
-// })
-// watch(
-//   () => nuxtApp.$route.path,
-//   (val) => {
-//     console.log('app route', val)
-//   },
-//   {
-//     immediate: true
-//   }
-// )
+
 const breakpoints = {
   xs: 0,
   sm: 640,

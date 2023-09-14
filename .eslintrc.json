@@ -13,6 +13,7 @@
   "plugins": [],
   "rules": {
     "vue/no-multiple-template-root":0,
-    "no-console":0
+    "no-console":0,
+    "vue/multi-word-component-names": 0
   }
 }

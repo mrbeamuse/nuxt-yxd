@@ -1,7 +1,8 @@
 <template>
-  <NuxtLayout name="header" />
   <div>
-    <h1 class="text-red-700">周师傅的详细页面</h1>
+    <h1>周师傅的详细页面</h1>
+    <h1>周师傅的详细页面</h1>
+    <h1>周师傅的详细页面</h1>
 
     <h2>title 1</h2>
 
@@ -20,9 +21,4 @@
     <p>内容 4</p>
   </div>
 </template>
-<style lang="scss">
-body {
-  background-color: $bgColor;
-  color: $theme;
-}
-</style>
+<style lang="scss"></style>
