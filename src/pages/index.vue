@@ -8,7 +8,7 @@
     >
       <div class="w-2/5">
         <div
-          class="inline-block pt-3.5 text-37px bg-[url('~/assets/img/index/wen-icon.png')] bg-top bg-no-repeat bg-[length:107px_40px]"
+          class="font-syst inline-block pt-3.5 text-37px bg-[url('~/assets/img/index/wen-icon.png')] bg-top bg-no-repeat bg-[length:107px_40px]"
         >
           峰会故事
         </div>

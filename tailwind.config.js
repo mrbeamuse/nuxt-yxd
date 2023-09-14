@@ -1,16 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [],
   theme: {
     extend: {
+      fontFamily: {
+        syst: ['syst', ...defaultTheme.fontFamily.sans]
+      },
       fontSize: {
         '21px': '1.3125rem',
         '37px': '2.3125rem'
       },
-      // boxShadow: {
-      //   'l-white': '-10px 0 10px white',
-      //   'l-zinc': '-10px 0 10px #18181b'
-      // },
       aspectRatio: {
         '16/9': '16 / 9',
         '2/1': '2 / 1',
